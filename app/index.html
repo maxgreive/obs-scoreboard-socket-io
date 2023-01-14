@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <script src="https://cdn.socket.io/socket.io-3.0.0.js"></script>
+    <script defer src="app.js"></script>
+</head>
+
+<body>
+
+    <!-- MATCH OVERVIEW -->
+
+    <div class="container match-overview">
+        <div class="name-team name-team-home" data-team="home" data-abbr="true">&mdash;</div>
+        <div class="score">
+            <span class="score-team" data-team="home" data-score="0">0</span>
+            <span class="divider">&ndash;</span>
+            <span class="score-team" data-team="away" data-score="0">0</span>
+        </div>
+        <div class="name-team name-team-away" data-team="away" data-abbr="true">&mdash;</div>
+
+        <div class="time">
+            <span class="overtime-indicator clear">+</span>
+            <span class="minutes">––</span>
+            <span class="minutes-colon">:</span>
+            <span class="seconds">––</span>
+
+            <div class="timeout-indicator"><span>Timeout</span></div>
+        </div>
+    </div>
+
+    <!-- MATCH DETAILS -->
+    <div class="container">
+        <div class="notification clear">Final Score</div>
+    </div>
+    <div class="container match-details">
+        <div class="logo-team logo-team-home"></div>
+        <div class="name-team" data-team="home">HOME</div>
+        <div class="score">
+            <span class="score-team" data-team="home" data-score="0">0</span>
+        </div>
+        <div class="logo">
+            <!-- Insert Logo -->
+        </div>
+        <div class="score">
+            <span class="score-team" data-team="away" data-score="0">0</span>
+        </div>
+        <div class="name-team" data-team="away">AWAY</div>
+        <div class="logo-team logo-team-away"></div>
+    </div>
+
+    <!-- MENU -->
+
+    <div class="menu">
+        <!-- SCORES HOME -->
+        <div class="menu-score" data-target="score-team-home">
+            <h3>Score<span class="name-team name-team-home" data-team="home">Home</span></h3>
+            <button class="btn-score add" data-team="home" data-action="add">+ 1</button>
+            <button class="btn-score sub" data-team="home" data-action="sub">- 1</button>
+            <button class="btn-score reset" data-team="home" data-action="reset">Reset</button>
+            <button class="btn-timeout" data-team="home">Timeout</button>
+        </div>
+
+        <!-- SCORES AWAY -->
+        <div class="menu-score" data-target="score-team-away">
+            <h3>Score<span class="name-team name-team-away" data-team="away">Away</span></h3>
+
+            <button class="btn-score add" data-team="away" data-action="add">+ 1</button>
+            <button class="btn-score sub" data-team="away" data-action="sub">- 1</button>
+            <button class="btn-score reset" data-team="away" data-action="reset">Reset</button>
+            <button class="btn-timeout" data-team="away">Timeout</button>
+        </div>
+
+        <!-- TIME CONTROL -->
+        <div class="time-control-wrapper" data-target="score">
+            <h3>Time<br>Control</h3>
+            <button class="btn-time" data-action="toggle">Start</button>
+            <button class="btn-time" data-action="reset">Reset</button>
+            <input type="text" class="input-time-adjust" placeholder="12:34">
+            <button class="btn-time" data-action="adjust">Set</button>
+        </div>
+
+
+        <div class="team-data-wrapper">
+            <h3>Team Names &amp;<br>Team Colors</h3>
+
+            <!-- TEAM NAMES -->
+            <select class="inp_teamName" placeholder="Home Team Name" data-team="home" data-home-team-name></select>
+            <select class="inp_teamName" placeholder="Away Team Name" data-team="away" data-away-team-name></select>
+
+            <!-- TEAM COLORS -->
+            <input type="color" value="#ca2d64" class="inp_teamColor" placeholder="Home Team Color" data-team="home">
+            <input type="color" value="#63b3ed" class="inp_teamColor" placeholder="Away Team Color" data-team="away">
+
+        </div>
+    </div>
+
+    <template data-team-select>
+        <option disabled selected>Select team</option>
+        <!-- Insert Team Names -->
+        <option data-shorthand="ABC">Team ABC</option>
+    </template>
+</body>
+
+</html>
