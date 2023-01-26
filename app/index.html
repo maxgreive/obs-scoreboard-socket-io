@@ -12,8 +12,8 @@
 
 <body>
 
+    <main>
     <!-- MATCH OVERVIEW -->
-
     <div class="container match-overview">
         <div class="name-team name-team-home" data-team="home" data-abbr="true">&mdash;</div>
         <div class="score">
@@ -22,22 +22,19 @@
             <span class="score-team" data-team="away" data-score="0">0</span>
         </div>
         <div class="name-team name-team-away" data-team="away" data-abbr="true">&mdash;</div>
-
         <div class="time">
             <span class="overtime-indicator clear">+</span>
-            <span class="minutes">––</span>
+                <span class="minutes">&ndash;&ndash;</span>
             <span class="minutes-colon">:</span>
-            <span class="seconds">––</span>
-
+                <span class="seconds">&ndash;&ndash;</span>
             <div class="timeout-indicator"><span>Timeout</span></div>
         </div>
     </div>
-
     <!-- MATCH DETAILS -->
     <div class="container">
         <div class="notification clear">Final Score</div>
     </div>
-    <div class="container match-details">
+        <div class="container match-details clear">
         <div class="logo-team logo-team-home"></div>
         <div class="name-team" data-team="home">HOME</div>
         <div class="score">
@@ -52,10 +49,16 @@
         <div class="name-team" data-team="away">AWAY</div>
         <div class="logo-team logo-team-away"></div>
     </div>
+    </main>
 
+    <section class="controls">
     <!-- MENU -->
-
     <div class="menu">
+            <div class="menu-details">
+                <h3>Details<br>Control</h3>
+                <button class="btn-toggle-details">Toggle</button>
+            </div>
+
         <!-- SCORES HOME -->
         <div class="menu-score" data-target="score-team-home">
             <h3>Score<span class="name-team name-team-home" data-team="home">Home</span></h3>
@@ -95,9 +98,9 @@
             <!-- TEAM COLORS -->
             <input type="color" value="#ca2d64" class="inp_teamColor" placeholder="Home Team Color" data-team="home">
             <input type="color" value="#63b3ed" class="inp_teamColor" placeholder="Away Team Color" data-team="away">
-
         </div>
     </div>
+    </section>
 
     <template data-team-select>
         <option disabled selected>Select team</option>

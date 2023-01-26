@@ -17,11 +17,19 @@
   display: none!important;
 }
 
-body {
-  background: #111;
+main, .controls {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+main {
+  width: 1920px;
+  height: 1080px;
+}
+
+body {
+  background: #111;
 }
 
 body,
@@ -45,9 +53,10 @@ select {
 
 .match-overview {
   display: grid;
+  align-self: flex-start;
   grid-template-columns: repeat(3, 102px);
   grid-template-rows: repeat(2, 38px);
-  margin: 3rem 0;
+  margin: 64px 0 720px 100px;
   font-size: 24px;
 }
 
@@ -175,6 +184,8 @@ select {
   grid-template-rows: 75px;
   box-shadow: var(--shadow-dark);
   font-size: 42px;
+  transition: opacity 1s ease;
+  opacity: 1;
 }
 
 .match-details>* {
@@ -297,6 +308,12 @@ button.sub {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto var(--button-size);
   gap: 5px;
+}
+
+.menu .menu-details {
+  display: grid;
+  gap: 5px;
+  align-content: flex-start;
 }
 
 .menu .menu-score h3,

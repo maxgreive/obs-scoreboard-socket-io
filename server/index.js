@@ -32,6 +32,11 @@ io.on('connection', (socket) => {
         console.log('color:change', team, value);
         io.emit('color:change', team, value);
     });
+
+    socket.on('details:toggle', () => {
+        console.log('details:toggle');
+        io.emit('details:toggle');
+    });
 });
 
 http.listen(8080, () => console.log('listening on http://localhost:8080'));

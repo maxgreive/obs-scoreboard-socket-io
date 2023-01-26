@@ -18,7 +18,8 @@ const inputs = {
     timeoutButtons: document.querySelectorAll('.btn-timeout'),
     timeButtons: document.querySelectorAll('.btn-time'),
     nameInputs: document.querySelectorAll('.inp_teamName'),
-    colorInputs: document.querySelectorAll('.inp_teamColor')
+    colorInputs: document.querySelectorAll('.inp_teamColor'),
+    toggleDetails: document.querySelector('.btn-toggle-details')
 };
 
 const labels = {
@@ -74,6 +75,10 @@ const customProperties = document.documentElement.style;
     input.addEventListener('change', () => {
         socket.emit('color:change', team, input.value);
     });
+});
+
+inputs.toggleDetails.addEventListener('click', () => {
+    socket.emit('details:toggle');
 });
 
 // LISTENERS
@@ -152,6 +157,10 @@ socket.on('name:change', (team, value) => {
 
 socket.on('color:change', (team, value) => {
     customProperties.setProperty(team === 'home' ? '--home-color' : '--away-color', value);
+});
+
+socket.on('details:toggle', () => {
+    document.querySelector('.match-details').classList.toggle('clear');
 });
 
 function initTeamSelect() {
